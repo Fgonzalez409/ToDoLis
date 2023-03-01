@@ -34,7 +34,31 @@ const populateTodos = () => {
         let newTextNode = document.createTextNode(element.title)
         li.appendChild(newTextNode)
         ol.appendChild(li)
+    } 
+}
+
+const getFilteredTodos = () => {
+    let input = document.getElementById("input").value
+
+    let filtertoDos = arrayOfTodos.filter((data) => {
+        if(data.userId === parseInt(input)){
+            return data
+        }
+    }) 
+    let ol = document.getElementById("todo-list")
+
+    for (let index = 0; index < filtertoDos.length; index++ ){
+        const element = filtertoDos[index]
+        let li = document.createElement("LI")
+        let newTextNode = document.createTextNode(element.title)
+        li.appendChild(newTextNode)
+        ol.appendChild(li)
     }
 
+    // const filteredTodos = ol.appendChild(li)
+} 
+
+const clearTodos = () => {
     
+
 }
